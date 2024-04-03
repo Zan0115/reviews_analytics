@@ -12,3 +12,17 @@ sum_len = 0
 for ele in data:
     sum_len = sum_len + len(ele)
 print('留言的平均長度為', sum_len / len(data))
+
+short = []
+for ele in data:
+    if len(ele) < 100:
+        short.append(ele)
+print('共有', len(short), '筆長度小於100的留言')
+print(short[0])
+
+good = []
+for ele in data:
+    if 'good' in ele:
+        good.append(ele)
+print('共有', len(good), '筆提到good的留言')
+print(good[0])
