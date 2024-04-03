@@ -26,3 +26,5 @@ for ele in data:
         good.append(ele)
 print('共有', len(good), '筆提到good的留言')
 print(good[0])
+
+# 23~26行 可改寫一行 : good = [d for d in data if 'good' in d]
