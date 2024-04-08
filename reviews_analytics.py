@@ -8,6 +8,7 @@ with open('reviews.txt', 'r') as file:
             print(len(data))
 print('檔案讀取完，共有', len(data), '筆資料')
 
+# 文字計數
 sum_len = 0
 for ele in data:
     sum_len = sum_len + len(ele)
@@ -27,4 +28,26 @@ for ele in data:
 print('共有', len(good), '筆提到good的留言')
 print(good[0])
 
-# 23~26行 可改寫一行 : good = [d for d in data if 'good' in d]
+wc = {} # word_count
+for d in data:
+    words = d.split(' ')
+    for word in words:
+        if word in wc:
+            wc[word] += 1 # 該字的count +1
+        else:
+            wc[word] = 1 # 新增新的key進wc字典
+
+# 印出出現過1000000次的單字
+for word in wc:
+    if wc[word] > 1000000:
+        print(word, wc[word])
+
+# 查詢某字出現過的次數
+while True:
+    word = input('請問你想查什麼字? : ')
+    if word == 'q':
+        break
+    if word in wc:
+        print(word, '出現過的次數為 :', wc[word])
+    else:
+        print('這個字沒有出現過哦')
